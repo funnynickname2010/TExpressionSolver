@@ -10,9 +10,33 @@ TExpressionSolver::TExpressionSolver()
 {
 }
 
+
 TExpressionSolver::TExpressionSolver(const std::string& expr)
   : expression(expr)
 {
+  if (expression.empty())
+    throw std::invalid_argument("Expression cannot be empty");
+
+  int balance = 0;
+
+  for (char c : expression)
+  {
+    if (std::isdigit(c) || c == '+' || c == '-' ||
+      c == '*' || c == '/' || c == '(' || c == ')')
+    {
+      if (c == '(') balance++;
+      if (c == ')') balance--;
+      if (balance < 0)
+        throw std::invalid_argument("Mismatched parentheses");
+    }
+    else
+    {
+      throw std::invalid_argument("Invalid character in expression");
+    }
+  }
+
+  if (balance != 0)
+    throw std::invalid_argument("Mismatched parentheses");
 }
 
 
