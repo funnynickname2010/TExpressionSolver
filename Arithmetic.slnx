@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Arithmetic/Arithmetic.vcxproj" Id="0dc8d8b2-1bd7-49b4-9e61-99c1ae9eb8ed" />
+</Solution>
